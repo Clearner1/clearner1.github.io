@@ -1,0 +1,36 @@
+title: Anki学习技术文档
+description: 学习骇客Anki的技术文档集
+theme: minima
+markdown: kramdown
+highlighter: rouge
+
+# 插件
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# 导航菜单
+header_pages:
+  - index.md
+
+# 集合配置
+collections:
+  posts:
+    output: true
+    permalink: /:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# 站点设置
+timezone: Asia/Shanghai
+encoding: utf-8
+lang: zh-CN
