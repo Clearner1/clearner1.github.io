@@ -1,6 +1,6 @@
 ---
-title: 首页
-layout: home
+title: Zane's Blog
+layout: default
 ---
 
 # 欢迎来到我的学习空间
