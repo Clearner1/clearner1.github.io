@@ -1,96 +1,194 @@
 ---
-title: Zane, who are you?
+title: 首页
 layout: home
 ---
 
-# 欢迎来到Zane的 Blog
+# 欢迎来到我的学习空间
 
  这里会放一些个人的学习内容
 
-## 专辑导航
+## 专辑
 
-<div class="albums-preview">
+<div class="albums-grid">
   {% assign albums = site.pages | where: 'layout', 'album' %}
   {% for album in albums %}
-    <div class="album-preview">
+    <div class="album-card">
       <h3><a href="{{ album.url }}">{{ album.title }}</a></h3>
       {% if album.description %}
         <p>{{ album.description }}</p>
       {% endif %}
       {% assign album_posts = site.posts | where: 'album', album.album_name %}
-      <small>{{ album_posts.size }} 篇文章</small>
+      <div class="album-meta">{{ album_posts.size }} 篇文章</div>
     </div>
   {% endfor %}
 </div>
 
-<p><a href="/albums/">查看所有专辑 →</a></p>
-
 ## 最新文章
 
-{% for post in site.posts limit:5 %}
-- [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y年%m月%d日" }}
-  {% if post.album %}<small>专辑: {{ post.album }}</small>{% endif %}
-{% endfor %}
+<div class="posts-list">
+  {% for post in site.posts limit:5 %}
+    <div class="post-item">
+      <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+      <div class="post-meta">
+        <time>{{ post.date | date: "%Y年%m月%d日" }}</time>
+        {% if post.album %}<span class="album-tag">{{ post.album }}</span>{% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
 
-## 所有文章
-
-{% for post in site.posts %}
-- [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y年%m月%d日" }}
-  {% if post.album %}<small>专辑: {{ post.album }}</small>{% endif %}
-{% endfor %}
-
----
-
-*本文档持续更新中，欢迎收藏关注。*
-
-## 关于本站
-
-本站基于Jekyll构建，所有文档均为Markdown格式，方便阅读和维护。如果您对内容有任何建议或发现错误，欢迎反馈。
+{% if site.posts.size > 5 %}
+<div class="view-all">
+  <a href="/albums/">查看所有文章 →</a>
+</div>
+{% endif %}
 
 <style>
-.albums-preview {
+/* 苹果风格的简洁设计 */
+.albums-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.album-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.album-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-color: #d1d1d1;
+}
+
+.album-card h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.album-card h3 a {
+  text-decoration: none;
+  color: #1d1d1f;
+  transition: color 0.2s ease;
+}
+
+.album-card h3 a:hover {
+  color: #007aff;
+}
+
+.album-card p {
+  color: #6e6e73;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+}
+
+.album-meta {
+  color: #8e8e93;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.posts-list {
   margin: 1.5rem 0;
 }
 
-.album-preview {
-  border: 1px solid #e1e1e1;
-  border-radius: 6px;
-  padding: 1.25rem;
-  background: #f8f9fa;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.post-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid #f2f2f2;
+  transition: background-color 0.2s ease;
 }
 
-.album-preview:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.post-item:last-child {
+  border-bottom: none;
 }
 
-.album-preview h3 {
-  margin-top: 0;
-  margin-bottom: 0.75rem;
+.post-item:hover {
+  background-color: #fafafa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0 -1rem;
 }
 
-.album-preview h3 a {
+.post-item h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.post-item h3 a {
   text-decoration: none;
-  color: #333;
+  color: #1d1d1f;
+  transition: color 0.2s ease;
 }
 
-.album-preview h3 a:hover {
-  color: #007acc;
+.post-item h3 a:hover {
+  color: #007aff;
 }
 
-.album-preview p {
-  color: #666;
-  font-size: 0.9em;
-  line-height: 1.4;
-  margin-bottom: 0.75rem;
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: #8e8e93;
 }
 
-.album-preview small {
-  color: #888;
-  font-style: italic;
+.album-tag {
+  background: #f2f2f7;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: #007aff;
+  font-weight: 500;
+}
+
+.view-all {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.view-all a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #007aff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.view-all a:hover {
+  background: #0051d5;
+  transform: translateY(-1px);
+}
+
+/* 全局样式调整 */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin-bottom: 0.5rem;
+}
+
+h1 + p {
+  font-size: 1.1rem;
+  color: #6e6e73;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin: 2.5rem 0 1rem 0;
 }
 </style>

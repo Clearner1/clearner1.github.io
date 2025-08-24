@@ -1,12 +1,12 @@
 ---
 layout: default
-title: 专辑导航
+title: 所有专辑
 permalink: /albums/
 ---
 
-# 专辑导航
+# 所有专辑
 
-这里是所有专辑的汇总页面，每个专辑包含相关主题的文章系列。
+探索不同主题的文章系列
 
 <div class="albums-grid">
   {% assign albums = site.pages | where: 'layout', 'album' %}
