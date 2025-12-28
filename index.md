@@ -18,6 +18,10 @@ layout: default
         <p>{{ album.description }}</p>
       {% endif %}
       {% assign album_posts = site.posts | where: 'album', album.album_name %}
+      {% if album.album_source == 'pages' %}
+        {% assign album_posts = site.pages | where: 'album', album.album_name %}
+      {% endif %}
+      {% assign album_posts = album_posts | sort: 'date' | reverse %}
       <div class="album-meta">{{ album_posts.size }} 篇文章</div>
     </div>
   {% endfor %}
@@ -26,7 +30,10 @@ layout: default
 ## 最新文章
 
 <div class="posts-list">
-  {% for post in site.posts limit:5 %}
+  {% assign page_posts = site.pages | where: 'layout', 'post' %}
+  {% assign all_posts = site.posts | concat: page_posts %}
+  {% assign all_posts = all_posts | sort: 'date' | reverse %}
+  {% for post in all_posts limit:5 %}
     <div class="post-item">
       <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
       <div class="post-meta">
@@ -37,7 +44,7 @@ layout: default
   {% endfor %}
 </div>
 
-{% if site.posts.size > 5 %}
+{% if all_posts.size > 5 %}
 <div class="view-all">
   <a href="/albums/">查看所有文章 →</a>
 </div>
