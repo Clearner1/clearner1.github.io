@@ -11,6 +11,10 @@ layout: default
 
 <div class="album-stats">
   {% assign album_posts = site.posts | where: 'album', page.album_name %}
+  {% if page.album_source == 'pages' %}
+    {% assign album_posts = site.pages | where: 'album', page.album_name %}
+  {% endif %}
+  {% assign album_posts = album_posts | sort: 'date' | reverse %}
   <p>共 {{ album_posts.size }} 篇文章</p>
 </div>
 
@@ -28,9 +32,10 @@ layout: default
           </span>
         {% endif %}
       </div>
-      {% if post.excerpt %}
+      {% assign excerpt_text = post.excerpt | default: post.content %}
+      {% if excerpt_text %}
         <div class="post-excerpt">
-          {{ post.excerpt | strip_html | truncatewords: 50 }}
+          {{ excerpt_text | strip_html | truncatewords: 50 }}
         </div>
       {% endif %}
       <div class="post-tags">

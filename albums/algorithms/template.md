@@ -1,9 +1,11 @@
 ---
+layout: post
 title: "题目：<填写标题>"
 date: 2025-01-01
 categories: ['算法']
 tags: ['算法', '题解']
 album: 'Algorithm'
+published: false
 ---
 
 ## 题目描述

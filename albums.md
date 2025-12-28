@@ -17,6 +17,10 @@ permalink: /albums/
         <p class="album-description">{{ album.description }}</p>
       {% endif %}
       {% assign album_posts = site.posts | where: 'album', album.album_name %}
+      {% if album.album_source == 'pages' %}
+        {% assign album_posts = site.pages | where: 'album', album.album_name %}
+      {% endif %}
+      {% assign album_posts = album_posts | sort: 'date' | reverse %}
       <div class="album-meta">
         <span class="post-count">{{ album_posts.size }} 篇文章</span>
         {% if album_posts.size > 0 %}
@@ -32,6 +36,10 @@ permalink: /albums/
 {% assign albums = site.pages | where: 'layout', 'album' %}
 {% for album in albums %}
   {% assign album_posts = site.posts | where: 'album', album.album_name %}
+  {% if album.album_source == 'pages' %}
+    {% assign album_posts = site.pages | where: 'album', album.album_name %}
+  {% endif %}
+  {% assign album_posts = album_posts | sort: 'date' | reverse %}
   {% if album_posts.size > 0 %}
     <div class="album-section">
       <h3><a href="{{ album.url }}">{{ album.title }}</a></h3>
