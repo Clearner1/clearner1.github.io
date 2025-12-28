@@ -24,12 +24,12 @@ published: true
 
 ## 解法
 ```text
-<用伪代码或步骤说明>
+Shit
 ```
 
 ## 代码
 ```<language>
-<实现代码>
+Code is ship, show me your algorithm
 ```
 
 ## 易错点
