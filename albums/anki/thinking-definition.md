@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "04-01定义"
 date: 2025-08-21
 categories: ['Anki技术', '学习方法']

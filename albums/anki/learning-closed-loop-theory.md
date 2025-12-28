@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "03-02闭环"
 date: 2025-08-21
 categories: ['Anki技术', '基础理论']
