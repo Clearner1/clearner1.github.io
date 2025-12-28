@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "albums/anki/thinking-definition.md",
+                "file": "albums/algorithms/template 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "thinking-definition"
+              "title": "template 1"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "albums/anki/thinking-definition.md",
+                "file": "albums/algorithms/template 1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "thinking-definition 的反向链接列表"
+              "title": "template 1 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "albums/anki/thinking-definition.md",
+                "file": "albums/algorithms/template 1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "thinking-definition 的出链列表"
+              "title": "template 1 的出链列表"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "albums/anki/thinking-definition.md",
+                "file": "albums/algorithms/template 1.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "thinking-definition 的大纲"
+              "title": "template 1 的大纲"
             }
           },
           {
@@ -182,16 +182,16 @@
   },
   "active": "08a0771b725d8df6",
   "lastOpenFiles": [
+    "albums/algorithms/template.md",
+    "albums/anki/thinking-definition.md",
     "albums/anki/learning-closed-loop-theory.md",
     "albums/anki/index.md",
     "_posts/2025-08-22-learning-closed-loop-theory.md",
-    "albums/anki/thinking-definition.md",
     "albums/anki",
     "_posts/2025-08-22-thinking-definition.md",
     "albums.md",
     "index.md",
     "README.md",
-    "albums/algorithms/template.md",
     "albums/algorithms/index.md",
     "albums/algorithms/template 1.md",
     "albums/anki.md",
